@@ -27,7 +27,7 @@ with open('car_fleet.csv') as csvFile:
             currentVehicle["vin"] = row[0]  
             currentVehicle["make"] = row[1]  
             currentVehicle["model"] = row[2]  
-            currentVehicle["year"] = row[3]   
+            currentVehicle["year"] = row[3]
             currentVehicle["range"] = row[4]  
             currentVehicle["topSpeed"] = row[5]  
             currentVehicle["zeroSixty"] = row[6]  
