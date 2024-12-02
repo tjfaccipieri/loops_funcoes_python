@@ -13,25 +13,27 @@ import time
 
 #abrindo o arquivo com a insulina original do site
 with open('labs-insulina/insulina-completa.txt', 'r') as arquivoOriginal:
-  #mapeando as linhas do arquivo para dentro de um array
-  linhas = arquivoOriginal.readlines()
-  pass
+  try:
+      linhas = arquivoOriginal.readlines()
+      # print(linhas)
+  except IOError as e:
+      print(f"Erro ao encontrar o arquivo: {e}")
 
 #deletando a primeira e a ultima linha do array, o que vai tirar as linhas de ORIGIN e //
 del linhas[0]
 del linhas[-1]
 
 #agora, para as linhas que sobraram, remover todos os numeros e espaços em branco que existam nelas
+#  modelo sem o uso do FOR, passando linha a linha manualmente
+# linhas[0] = re.sub(r'[\d\s]', '', linhas[0])
+# linhas[1] = re.sub(r'[\d\s]', '', linhas[1])
+
 #feat: utilizando um laço FOR, pra caso precise filtrar um arquivo maior que esse
 for item in range(len(linhas)):
   linhas[item] = re.sub(r'[\d\s]', '', linhas[item])
 
 # outra opção que funciona com o FOR, mas que eu acho pior de entender de primeira, pq faz tudo em um unico
 #? linhas = [re.sub(r'[\d\s]', '', linha) for linha in linhas]
-  
-#  modelo sem o uso do FOR, passando linha a linha manualmenet
-# linhas[0] = re.sub(r'[\d\s]', '', linhas[0])
-# linhas[1] = re.sub(r'[\d\s]', '', linhas[1])
 
 #salvar essas linhas modificadas em um novo arquivo
 with open('labs-insulina/insulina-filtrada.txt', 'w') as regexFile:
@@ -58,7 +60,6 @@ primeiraParte = conteudo[:24]
 segundaParte = conteudo[24:54]
 terceiraParte = conteudo[54:89]
 quartaParte = conteudo[89:110]
-
 # salvar cada uma das partes separadas acima, em um arquivo diferente, para consultas futuras:
 with open('labs-insulina/lsInsulin.txt', 'w') as primeiroFiltro:
   primeiroFiltro.write(primeiraParte)
