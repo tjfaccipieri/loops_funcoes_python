@@ -3,7 +3,7 @@
   Utilizado para as aulas de Paitu do bootcamp Generation AWS Re/Start
   Novembro-2024 :)
 
-  Utilização desse script: Preparar os arquivos necessários para o calculo da base da insulina humana com base no código completo
+  Utilização desse script: Preparar os arquivos necessários para o calculo da base da insulina humana com base no código completo (Aba 10)
 '''
 
 #importando a lib para trabalhar com Regex
